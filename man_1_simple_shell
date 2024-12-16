@@ -1,36 +1,125 @@
-.TH Simple Shell
-
+.TH SIMPLE_SHELL 1 "August 2024" "1.0" "Simple Shell Manual"
 .SH NAME
-
+simple_shell \- A simple UNIX command interpreter
 
 .SH SYNOPSIS
+.B simple_shell
+[\fIoptions\fR]
+
+#include "StarHeader.h"
 
 .SH DESCRIPTION
+.B simple_shell
+is a simple UNIX command interpreter that mimics the behavior of the standard UNIX shell. It reads commands from the user, parses them, and executes them as if they were entered in a standard shell.
 
-.SH RETURN
+The simple_shell supports the execution of built-in commands as well as external commands found in the system's PATH. It also handles basic error reporting, argument parsing, and process management.
 
-.SH FORMAT SPECIFIERS
+.SH OPTIONS
+.B simple_shell
+does not have any command-line options. It runs interactively by default, waiting for user input in a loop until the user exits the shell.
 
-.SH PARAMETERS
+.SH COMMANDS
+The following commands are built into
+.B simple_shell:
 
-.SH USAGE EXAMPLE
+.TP
+.B cd
+Change the current directory.
+Usage:
+.I "cd [directory]"
 
-.SH LIMITATIONS
+.TP
+.B cd ..
+Move up one level in the directory tree.
+.I "cd .."
+
+.TP
+.B cd /
+Change the current working directory to the root directory.
+.I "cd /"
+
+.TP
+.B cd ~
+Return to your personal directory.
+.I "cd ~"
+
+.TP
+.B exit
+Exit the shell.
+Usage:
+.I "exit [status]"
+
+.TP
+.B help
+Display a help message with a list of built-in commands.
+
+.TP
+.B echo
+Displays a line of text or a variable.
+.I "echo [string]"
+
+.TP
+.B env
+Display the current environment variables.
+.I "env"
+
+.SH USAGE
+When
+.B simple_shell
+is run, it displays a prompt where the user can enter commands. The shell will then execute the command and return to the prompt.
+
+For example:
+
+.SH EXAMPLES
+$ simple_shell
+simple_shell> ls -l
+total 64
+-rwxrwxr-x 1 user user 16384 Aug 12 12:34 hsh
+-rw-rw-r-- 1 user user  1048 Aug 12 12:30 main.c
+simple_shell> echo "Hello, World!"
+Hello, World!
+simple_shell> exit
+$
+
+.TP
+.B Running a simple command
+Run the `ls` command to list directory contents:
+.EX
+$ simple_shell
+simple_shell> ls -la
+.EE
+
+.SH EXIT STATUS
+.B simple_shell
+exits with the status of the last command executed. If the
+.B exit
+command is used, the shell will exit with the status specified by the user.
+
+.SH FILES
+.B simple_shell
+does not use any external configuration files. All functionality is implemented within the binary.
+
+.SH DIAGNOSTICS
+.TP
+.B Command not found
+This error occurs when the command entered by the user is not found in the system's PATH.
+
+Example:
+.I "simple_shell> non_existent_command"
+Output:
+.B "not found: non_existent_command"
 
 .SH BUGS
-
-.SH ERRORS
-
-.SH CONFORMING TO
-
-The _printf() follows the standard
-.B ANSI C, C89 C programming language
-, any later versions of C programming language may cause syntax errors.
+No known bugs at this time. If you encounter any issues, please report them to the project maintainers.
 
 .SH AUTHOR
-This custom
-.B Simple Shell
-This function was developed by Nigel Feng, Rico Pascua and Won Chak Leung as a project of the Holberton School Australia.
+This man page was written by Fassih Belmokthar and Xavier Piedallu as part of the Simple Shell project for Holberton School.
+
+.SH COPYRIGHT
+This is free software; you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
 
 .SH SEE ALSO
-.B printf(1), printf(3), stdarg(3), string(3), stdlib.h(0p), limits.h(0p).
+.BR bash (1),
+.BR sh (1),
+.BR zsh (1),
+.BR ksh (1)
