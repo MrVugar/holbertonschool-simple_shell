@@ -1,52 +1,36 @@
+.TH Simple Shell
 
----
-
-### man_1_simple_shell
-
-```man
-.TH SIMPLE_SHELL 1 "December 2024" "Simple Shell" "User Commands"
 .SH NAME
-simple_shell \- a simple UNIX command-line interpreter
+
 
 .SH SYNOPSIS
-.B simple_shell
-.RI [ options ]
 
 .SH DESCRIPTION
-.B simple_shell
-is a basic UNIX shell that provides command execution and process management.
 
-.SH USAGE
-.TP
-Interactive Mode:
-Run the shell and type commands to execute.
-.TP
-Non-Interactive Mode:
-Pipe commands into the shell to execute them.
+.SH RETURN
 
-.SH OPTIONS
-.B simple_shell
-does not take any options.
+.SH FORMAT SPECIFIERS
 
-.SH EXAMPLES
-.TP
-Interactive Mode:
-.EX
-$ ./hsh
-$ ls -l
-$ exit
-.EE
-.TP
-Non-Interactive Mode:
-.EX
-$ echo "ls -l" | ./hsh
-.EE
+.SH PARAMETERS
 
-.SH AUTHORS
-See the AUTHORS file for a list of contributors.
+.SH USAGE EXAMPLE
+
+.SH LIMITATIONS
 
 .SH BUGS
-No known bugs at the moment.
 
-.SH COPYRIGHT
-This project is open source and available under the MIT License.
+.SH ERRORS
+
+.SH CONFORMING TO
+
+The _printf() follows the standard
+.B ANSI C, C89 C programming language
+, any later versions of C programming language may cause syntax errors.
+
+.SH AUTHOR
+This custom
+.B Simple Shell
+This function was developed by Nigel Feng, Rico Pascua and Won Chak Leung as a project of the Holberton School Australia.
+
+.SH SEE ALSO
+.B printf(1), printf(3), stdarg(3), string(3), stdlib.h(0p), limits.h(0p).
