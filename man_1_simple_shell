@@ -1,0 +1,52 @@
+
+---
+
+### man_1_simple_shell
+
+```man
+.TH SIMPLE_SHELL 1 "December 2024" "Simple Shell" "User Commands"
+.SH NAME
+simple_shell \- a simple UNIX command-line interpreter
+
+.SH SYNOPSIS
+.B simple_shell
+.RI [ options ]
+
+.SH DESCRIPTION
+.B simple_shell
+is a basic UNIX shell that provides command execution and process management.
+
+.SH USAGE
+.TP
+Interactive Mode:
+Run the shell and type commands to execute.
+.TP
+Non-Interactive Mode:
+Pipe commands into the shell to execute them.
+
+.SH OPTIONS
+.B simple_shell
+does not take any options.
+
+.SH EXAMPLES
+.TP
+Interactive Mode:
+.EX
+$ ./hsh
+$ ls -l
+$ exit
+.EE
+.TP
+Non-Interactive Mode:
+.EX
+$ echo "ls -l" | ./hsh
+.EE
+
+.SH AUTHORS
+See the AUTHORS file for a list of contributors.
+
+.SH BUGS
+No known bugs at the moment.
+
+.SH COPYRIGHT
+This project is open source and available under the MIT License.
