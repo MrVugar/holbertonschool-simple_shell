@@ -1,0 +1,121 @@
+SIMPLE_SHELL(1)               Simple Shell Manual              SIMPLE_SHELL(1)
+
+
+
+NNAAMMEE
+       simple_shell - A simple UNIX command interpreter
+
+
+SSYYNNOOPPSSIISS
+       ssiimmppllee__sshheellll [_o_p_t_i_o_n_s]
+
+       #include "StarHeader.h"
+
+
+DDEESSCCRRIIPPTTIIOONN
+       ssiimmppllee__sshheellll  is  a simple UNIX command interpreter that mimics the be-
+       havior of the standard UNIX shell. It reads  commands  from  the  user,
+       parses  them,  and  executes them as if they were entered in a standard
+       shell.
+
+       The simple_shell supports the execution of built-in commands as well as
+       external commands found in the system's PATH. It also handles basic er-
+       ror reporting, argument parsing, and process management.
+
+
+OOPPTTIIOONNSS
+       ssiimmppllee__sshheellll does not have any command-line options. It  runs  interac-
+       tively  by default, waiting for user input in a loop until the user ex-
+       its the shell.
+
+
+CCOOMMMMAANNDDSS
+       The following commands are built into ssiimmppllee__sshheellll::
+
+
+       ccdd     Change the current directory.  Usage: _c_d _[_d_i_r_e_c_t_o_r_y_]
+
+
+       ccdd ....  Move up one level in the directory tree.  _c_d _._.
+
+
+       ccdd //   Change the current working directory to the root directory.   _c_d
+              _/
+
+
+       ccdd ~~   Return to your personal directory.  _c_d _~
+
+
+       eexxiitt   Exit the shell.  Usage: _e_x_i_t _[_s_t_a_t_u_s_]
+
+
+       hheellpp   Display a help message with a list of built-in commands.
+
+
+       eecchhoo   Displays a line of text or a variable.  _e_c_h_o _[_s_t_r_i_n_g_]
+
+
+       eennvv    Display the current environment variables.  _e_n_v
+
+
+UUSSAAGGEE
+       When ssiimmppllee__sshheellll is run, it displays a prompt where the user can enter
+       commands. The shell will then execute the command  and  return  to  the
+       prompt.
+
+       For example:
+
+
+EEXXAAMMPPLLEESS
+       $  simple_shell  simple_shell>  ls  -l  total 64 -rwxrwxr-x 1 user user
+       16384 Aug 12 12:34 hsh -rw-rw-r-- 1 user user  1048 Aug 12 12:30 main.c
+       simple_shell> echo "Hello, World!"  Hello, World!  simple_shell> exit $
+
+
+       RRuunnnniinngg aa ssiimmppllee ccoommmmaanndd
+              Run the `ls` command to list directory contents:
+              $ simple_shell
+              simple_shell> ls -la
+
+
+EEXXIITT SSTTAATTUUSS
+       ssiimmppllee__sshheellll exits with the status of the last command executed. If the
+       eexxiitt command is used, the shell will exit with the status specified  by
+       the user.
+
+
+FFIILLEESS
+       ssiimmppllee__sshheellll  does  not use any external configuration files. All func-
+       tionality is implemented within the binary.
+
+
+DDIIAAGGNNOOSSTTIICCSS
+       CCoommmmaanndd nnoott ffoouunndd
+              This error occurs when the command entered by the  user  is  not
+              found in the system's PATH.
+
+              Example:  _s_i_m_p_l_e___s_h_e_l_l_>  _n_o_n___e_x_i_s_t_e_n_t___c_o_m_m_a_n_d Output: nnoott ffoouunndd::
+              nnoonn__eexxiisstteenntt__ccoommmmaanndd
+
+
+BBUUGGSS
+       No known bugs at this time. If you encounter any issues, please  report
+       them to the project maintainers.
+
+
+AAUUTTHHOORR
+       This  man  page was written by Fassih Belmokthar and Xavier Piedallu as
+       part of the Simple Shell project for Holberton School.
+
+
+CCOOPPYYRRIIGGHHTT
+       This is free software; you are free  to  change  and  redistribute  it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+
+SSEEEE AALLSSOO
+       bbaasshh(1), sshh(1), zzsshh(1), kksshh(1)
+
+
+
+1.0                               August 2024                  SIMPLE_SHELL(1)
