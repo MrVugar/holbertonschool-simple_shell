@@ -1,24 +1,18 @@
-#ifndef MAIN_H
-#define MAIN_H
-
-/*Librairies */
-
+#ifndef main_h
+#define main_h
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sched.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
-
 extern char **environ;
-
-/* Prototypes */
-
-void exec(char **args, char *input);
-void tokenize(char *input, char *args[]);
-void handlePath(const char* path, int length);
-void printEnv(void);
-char *handle_path(char *input);
-
+char *getln(void);
+char **formatln(char *ln);
+char *compose(char *token, char *val);
+int launch_process(char **command);
+void search_exe(char **command);
+char *_getenv(char *name);
+void handler_function(int i);
 #endif
