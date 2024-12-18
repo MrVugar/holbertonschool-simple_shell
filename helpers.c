@@ -1,65 +1,21 @@
-#include "StarHeader.h"
+#include <stdio.h>    /* getline, stdin */
+#include <stdlib.h>   /* free, exit, EXIT_SUCCESS */
+#include <string.h>   /* strcspn */
+#include <unistd.h>   /* write, STDOUT_FILENO */
 
-/**
- * _atoi - from a char string, extract numbers, and convert into int
- * @s: string to be tested
- *
- * Return: 0 if success
- */
-int _atoi(char *s)
+char *read_command(void)
 {
-	int a, sign, numb;
+    char *buffer = NULL;
+    size_t len = 0;
 
-	/* Initialize variables */
-	a = 0, sign = 1, numb = 0;
+    if (getline(&buffer, &len, stdin) == -1)
+    {
+        free(buffer);
+        write(STDOUT_FILENO, "\n", 1);
+        exit(EXIT_SUCCESS);
+    }
 
-	/* Iterate through each character of the string */
-	while (s[a] != '\0')
-	{
-		/* Check for negative sign */
-		if (s[a] == '-')
-			sign *= -1;
-
-		/* Check if character is a digit */
-		if (s[a] >= '0' && s[a] <= '9')
-		{
-			/* Convert consecutive digits to integer */
-			while (s[a] >= '0' && s[a] <= '9')
-			{
-				numb = (s[a] - '0') * sign + numb * 10;
-				a++;
-			}
-			/* Exit loop after processing digits */
-			break;
-		}
-		a++;
-	}
-	/* Return the extracted number */
-	return (numb);
+    buffer[strcspn(buffer, "\n")] = '\0'; /* Remove newline */
+    return buffer;
 }
 
-/**
- * is_valid_number - checks if exit code is a valid number.
- * @str: string to be tested
- * Return: 1 if valid
- *          0 if not valid
- */
-int is_valid_number(const char *str)
-{
-	int i = 0;
-
-	/* Check if the first character is a plus sign */
-	if (str[0] == '+')
-		i++;
-
-	/* Iterate through each character */
-	for (; str[i] != '\0'; i++)
-	{
-		/* Check if character is not a digit */
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-	}
-
-	/* If all characters are digits, return 1 (valid) */
-	return (1);
-}
