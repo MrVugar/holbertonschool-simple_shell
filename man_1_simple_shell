@@ -1,0 +1,46 @@
+```groff
+.\" Man page for simple_shell
+.TH simple_shell 1 "2024-03-01" "Simple Shell Project" "User Commands"
+.SH NAME
+simple_shell \- a simple implementation of a Unix-like shell
+.SH SYNOPSIS
+\fBsimple_shell\fR
+.SH DESCRIPTION
+The \fBsimple_shell\fR program is an interactive command interpreter, similar to bash or zsh.
+It reads commands from user input, parses them, and executes them. It supports basic command execution, handling of arguments, built-in commands, and path resolution.
+
+When started, \fBsimple_shell\fR displays a prompt, waiting for the user to type in commands.
+
+.SH COMMANDS
+The following built-in commands are supported:
+
+.TP
+\fBexit\fR [status]
+Exits the shell with the given status code. If no status is provided, the shell exits with the status code 0.
+.TP
+\fBenv\fR
+Prints the current environment variables.
+.TP
+\fBcd\fR [directory]
+Changes the current directory to the specified directory. If no directory is provided, changes to the user's home directory.
+
+Other commands are executed by searching the PATH environment variable and using fork, and execve.
+.SH EXAMPLE
+To start the shell:
+.RS
+./simple_shell
+.RE
+After the prompt is shown, type a command:
+.RS
+ls -l
+.RE
+or
+.RS
+env
+.RE
+.SH BUGS
+Report bugs to [Your Email] or create an issue on the project's GitHub repository.
+.SH AUTHORS
+[Vugar Azizov] - [MrVugar]
+.SH SEE ALSO
+bash(1), sh(1)

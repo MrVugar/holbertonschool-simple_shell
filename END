@@ -1,0 +1,59 @@
+simple_shell(1)                  User Commands                 simple_shell(1)
+
+
+
+```groff
+
+NNAAMMEE
+       simple_shell - a simple implementation of a Unix-like shell
+
+SSYYNNOOPPSSIISS
+       ssiimmppllee__sshheellll
+
+DDEESSCCRRIIPPTTIIOONN
+       The ssiimmppllee__sshheellll program is an interactive command interpreter, similar
+       to bash or zsh.  It reads commands from user input,  parses  them,  and
+       executes  them.  It supports basic command execution, handling of argu-
+       ments, built-in commands, and path resolution.
+
+       When started, ssiimmppllee__sshheellll displays a prompt, waiting for the  user  to
+       type in commands.
+
+
+CCOOMMMMAANNDDSS
+       The following built-in commands are supported:
+
+
+       eexxiitt [status]
+              Exits the shell with the given status code. If no status is pro-
+              vided, the shell exits with the status code 0.
+
+       eennvv    Prints the current environment variables.
+
+       ccdd [directory]
+              Changes the current directory to the specified directory. If  no
+              directory is provided, changes to the user's home directory.
+
+              Other  commands  are  executed by searching the PATH environment
+              variable and using fork, and execve.
+
+EEXXAAMMPPLLEE
+       To start the shell:
+       After the prompt is shown, type a command:
+              ls -l
+       or
+              env
+
+BBUUGGSS
+       Report bugs to [Your Email] or create an issue on the project's  GitHub
+       repository.
+
+AAUUTTHHOORRSS
+       [Vugar Azizov] - [MrVugar]
+
+SSEEEE AALLSSOO
+       bash(1), sh(1)
+
+
+
+Simple Shell Project              2024-03-01                   simple_shell(1)
