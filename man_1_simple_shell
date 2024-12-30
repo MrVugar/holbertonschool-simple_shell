@@ -1,46 +1,75 @@
-```groff
-.\" Man page for simple_shell
-.TH simple_shell 1 "2024-03-01" "Simple Shell Project" "User Commands"
+.TH man 1 "DEC 29 2024" "1.0" "Holberton Simple Shell Project"
+
 .SH NAME
-simple_shell \- a simple implementation of a Unix-like shell
+    hsh - Holberton Simple Shell: command line interpreter
+
 .SH SYNOPSIS
-\fBsimple_shell\fR
+hsh [filename]
+
+.SH COPYRIGHT
+    Public Domain, no copyright protection
+
 .SH DESCRIPTION
-The \fBsimple_shell\fR program is an interactive command interpreter, similar to bash or zsh.
-It reads commands from user input, parses them, and executes them. It supports basic command execution, handling of arguments, built-in commands, and path resolution.
+.B hsh
+is a basic imitation of a command line interpreter that reads and implements basic commands from user input as a shell would.
+.PP
+.B hsh
+ is compiled on Ubuntu 14.04 LTS with gcc 4.8.4 (C90). It is built to run in both interactive and noninteractive mode.
+.PP
+.SH USER INPUT
+Once a user inputs a command and hits enter, the shell performs the following actions:
 
-When started, \fBsimple_shell\fR displays a prompt, waiting for the user to type in commands.
+1. Splits the command into an array of words.
 
-.SH COMMANDS
-The following built-in commands are supported:
+2. Looks for the command.
 
-.TP
-\fBexit\fR [status]
-Exits the shell with the given status code. If no status is provided, the shell exits with the status code 0.
-.TP
-\fBenv\fR
-Prints the current environment variables.
-.TP
-\fBcd\fR [directory]
-Changes the current directory to the specified directory. If no directory is provided, changes to the user's home directory.
+3. Executes the command.
+.PP
+.SH SEARCH FOR COMMAND
+When locating a command, the shell looks for a built-in command by that name.
+If a built-in command is not found, the shell searches for the command in the PATH.
+.PP
+.SH EXECUTE COMMAND
+Commands are executed in a child process of the main process.
+.PP
+.SH BUILTINS
+.IP help
+Call help, display shell help
+.IP exit
+Exits process and frees memory allocated.
+.IP cd
+Change directories
 
-Other commands are executed by searching the PATH environment variable and using fork, and execve.
-.SH EXAMPLE
-To start the shell:
-.RS
-./simple_shell
+.SH EXAMPLES
+Below an example of interactive mode:
+
+.RS +4
+$ ./hsh
 .RE
-After the prompt is shown, type a command:
-.RS
-ls -l
+.RS +4
+($) /bin/ls
 .RE
-or
-.RS
-env
+.RS +4
+hsh main.c shell.c
 .RE
+.RS +4
+($)
+.RE
+.RS +4
+($) exit
+.RE
+.RS +4
+$
+
 .SH BUGS
-Report bugs to [Your Email] or create an issue on the project's GitHub repository.
+No known bugs until now.
+
 .SH AUTHORS
-[Vugar Azizov] - [MrVugar]
+.PP
+Vugar Azizov - https://github.com/MrVugar
+.PP
+
+.PP
 .SH SEE ALSO
-bash(1), sh(1)
+.BR man
+.BR sh
